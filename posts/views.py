@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from posts.models import Post, Comment  # Ensure you import Comment
+from posts.models import Post, Comment
 from posts.forms import PostForm2, CommentForm
 import random
+from django.contrib.auth.decorators import login_required
 
 def test_view(request):
     return HttpResponse(f"Охх! {random.randint(1, 100)}")
@@ -10,6 +11,8 @@ def test_view(request):
 def main_page_view(request):
     return render(request, 'base.html')
 
+
+@login_required(login_url="login")
 def post_list_view(request):
     if request.method == 'GET':
         posts = Post.objects.all()
