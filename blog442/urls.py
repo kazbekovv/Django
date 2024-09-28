@@ -10,5 +10,6 @@ urlpatterns = [
     path('api/vi1/posts/', include('posts.urls')),
     path('api/vi1/posts/posts2/', include('posts.urls')),
     path('api/vi1/user/', include('user.urls')),
+    path('api/vi/parser', include('parser.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

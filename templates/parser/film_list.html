@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{%load static%}
+
+
+{%block content%}
+{%for film in films%}
+<div class="card" style="width: 18rem;">
+  {%if film.image%}
+  <img src="{{ film.image.url }}" class="card-img-top" alt="...">
+  {%else%}
+  <img src="{% static 'img.png' %}" class="card-img-top" alt="...">
+  {% endif %}
+  <div class="card-body">
+    <h5 class="card-title">{{film.title_name}}</h5>
+    <a href="{{film.title_url}}" class="btn btn-primary">Go to film</a>
+  </div>
+</div>
+{%endfor%}
+{%endblock%}
