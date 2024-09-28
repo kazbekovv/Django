@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -11,6 +12,7 @@ class Tag(models.Model):
         return self.name
 
 class Post(models.Model):
+    author = models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE, null=True)
     image = models.ImageField(null=True, blank=True, upload_to='posts/')
     title = models.CharField(max_length=100)
     content = models.TextField(null=True, blank=True)

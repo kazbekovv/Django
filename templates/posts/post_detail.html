@@ -13,7 +13,9 @@
     <p class="card-text">{{ post.content }}</p>
     <p class="card-text">Rating: {{ post.rate }}</p>
     <p class="card-text">Created at: {{ post.created_at }}</p>
-    <a href="/post/{{ post.id }}/" class="btn btn-primary">Go to post</a>
+    {%if post.author == request.user%}
+    <a href="/api/vi1/posts/posts/{{ post.id }}/update/" class="btn btn-primary">Update post</a>
+    {%endif
   </div>
 </div>
 <form action="" method="post">
