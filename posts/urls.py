@@ -1,13 +1,25 @@
-from django.urls import path
-from posts.views import TestView, PostListView,PostCreateView, PostDetailView,  post_list_view, post_detail_view, post_create_view, post_update_view
+# from django.urls import path
+# from posts.views import TestView, PostListView,PostCreateView, PostDetailView,  post_list_view, post_detail_view, post_create_view, post_update_view
+#
+#
+# urlpatterns = [
+#     path('test/', TestView.as_view(), name='test'),
+#     path('posts2/', PostListView.as_view(), name='post_list2'),
+#     path('posts2/create/', PostCreateView.as_view(), name='post_create'),
+#     path('posts2/<int:post_id>/', PostDetailView.as_view(), name='post_detail2'),
+#     # path('posts/', post_list_view, name='post_list'),
+#     # path('post/<int:post_id>/', post_detail_view, name='post_detail'),
+#     # path('posts/create/', post_create_view, name='post_create'),
+#     path('posts/<int:post_id>/update/', post_update_view, name='post_update')]
 
+from django.urls import path
+from posts.views import TestView, PostListView, PostCreateView, PostDetailView, post_update_view
 
 urlpatterns = [
     path('test/', TestView.as_view(), name='test'),
-    path('posts2/', PostListView.as_view(), name='post_list'),
+    path('', PostListView.as_view(), name='post_list'),  # маршрут для api/vi1/posts/
+    path('posts2/', PostListView.as_view(), name='post_list2'),
     path('posts2/create/', PostCreateView.as_view(), name='post_create'),
-    path('posts2/<int:post_id>/', PostDetailView.as_view, name='post_detail'),
-    path('posts/', post_list_view, name='post_list'),
-    path('post/<int:post_id>/', post_detail_view, name='post_detail'),
-    path('posts/create/', post_create_view, name='post_create'),
-    path('posts/<int:post_id>/update/', post_update_view, name='post_update')]
+    path('posts2/<int:post_id>/', PostDetailView.as_view(), name='post_detail2'),
+    path('<int:post_id>/update/', post_update_view, name='post_update'),
+]

@@ -30,7 +30,7 @@ class PostListView(ListView):
         return context
 
     def get_queryset(self):
-        search = self.raquest.GET.get('search')
+        search = self.request.GET.get('search')
         tag = self.request.GET.getlist('tag')
         posts = Post.objects.all()
         if search:

@@ -4,7 +4,7 @@
 
 {%block content%}
 <form action="" method="get">
-  {{forms.as_p}}
+  {{form.as_p}}
   <button type="submit">Search</button>
 </form>
 {%for post in posts%}
@@ -24,7 +24,7 @@
         {%endfor%}
     </ul>
     <p class="card-text">{{post.created_at}}</p>
-    <a href="/api/vi1/post/{{post.id}}/" class="btn btn-primary">Go to post</a>
+    <a href="/api/vi1/posts/posts/{{post.id}}/" class="btn btn-primary">Go to post</a>
   </div>
 </div>
 {%endfor%}

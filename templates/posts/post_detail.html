@@ -15,7 +15,7 @@
     <p class="card-text">Created at: {{ post.created_at }}</p>
     {%if post.author == request.user%}
     <a href="/api/vi1/posts/posts/{{ post.id }}/update/" class="btn btn-primary">Update post</a>
-    {%endif
+    {%endif%}
   </div>
 </div>
 <form action="" method="post">
